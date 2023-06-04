@@ -1,0 +1,24 @@
+pair<int,int> missingAndRepeating(vector<int> &arr, int n)
+{
+	pair<int,int> p;
+	unordered_map<int,int> m;
+	for(int i=1;i<=n;i++){
+		m[i]=0;
+	}
+	for(int i=0;i<n;i++){
+		m[arr[i]]++;
+	}
+	int a;
+	int b;
+	for(auto it:m){
+		if(it.second>1){
+			b=it.first;
+		}
+        if(it.second==0){
+			a=it.first;
+		}
+	}
+	p=make_pair(a,b);
+	return p;
+	
+}

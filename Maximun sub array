@@ -1,0 +1,12 @@
+long long maxSubarraySum(int arr[], int n) {
+    long long int sum=0;
+    if(n==1) return arr[0];
+    long long int maximum=INT_MIN;
+    for(int i=0;i<n;i++){
+        sum=sum+arr[i];
+        if(maximum<sum) maximum=sum;
+        if(sum<0) sum=0;
+    }
+    if(maximum<=0) maximum=0;
+    return maximum;
+}

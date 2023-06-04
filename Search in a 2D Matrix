@@ -1,0 +1,20 @@
+bool searchMatrix(vector<vector<int>>& mat, int target) {
+        int index=-1;
+        int n=mat.size();
+        int m=mat[0].size();
+        for(int i=0;i<n;i++){
+            if(target<mat[i][0]){
+                index=i-1;
+                break;
+            }
+        }
+        if(m==1 && n==1 && target!=mat[0][0]) return false;
+        if(target==mat[0][0] || target==mat[n-1][m-1]) return true;
+        if(index==-1){
+            if(target<mat[n-1][m-1]) index=n-1;
+        }
+        for(int j=0;j<m;j++){
+            if(target==mat[index][j]) return true;
+        }
+        return false;
+}
